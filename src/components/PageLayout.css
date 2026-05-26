@@ -1,0 +1,22 @@
+/* src/components/PageLayout.css */
+.page-container {
+  background-color: #FFFAF4;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px 40px;
+}
+
+.skyline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.6;
+}
