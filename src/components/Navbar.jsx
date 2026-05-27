@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   return (
@@ -8,7 +9,7 @@ function Navbar() {
       {/* Logo */}
       <div className="navbar-logo">
         <NavLink to="/">
-          <img src="/src/assets/logo.png" alt="Oya Deliver" />
+          <img src={logo} alt="Oya Deliver" />
         </NavLink>
       </div>
 
@@ -40,7 +41,7 @@ function Navbar() {
             <path d="M16 10a4 4 0 01-8 0" stroke="#0F0F0F" strokeWidth="2"/>
           </svg>
         </NavLink>
-        <NavLink to="/profile" className={({ isActive }) => isActive ? "active-icon" : ""}>
+        <NavLink to="/login" className={({ isActive }) => isActive ? "active-icon" : ""}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="#0F0F0F" strokeWidth="2"/>
             <circle cx="12" cy="7" r="4" stroke="#0F0F0F" strokeWidth="2"/>

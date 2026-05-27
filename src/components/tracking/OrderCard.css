@@ -1,0 +1,64 @@
+/* src/components/tracking/OrderCard.css */
+.order-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFD561;
+  border-radius: 50px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F0F0F;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 10px;
+}
+
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #0F0F0F;
+  font-weight: 500;
+}
+
+.delivery-address {
+  background-color: #0F0F0F;
+  border-radius: 20px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFD561;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.delivery-address p {
+  color: #FFFAF4;
+  font-size: 15px;
+  margin: 0;
+}
+
+.estimated {
+  color: #FFFAF4;
+  font-size: 14px;
+  opacity: 0.8;
+}
