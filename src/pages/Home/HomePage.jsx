@@ -15,7 +15,7 @@ const categories = [
 ];
 const phrases = [
   { text: "Fresh Groceries...", color: "#0F0F0F" },
-  { text: "Delivers Fast Fast...", color: "#E9B118" },
+  { text: " Fast Fast...", color: "#E9B118" },
   { text: "To Your Home...", color: "#2ECC71" },
 ];
 
