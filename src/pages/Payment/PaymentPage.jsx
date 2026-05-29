@@ -128,12 +128,17 @@ function PaymentPage() {
         </div>
 
         {/* Pay Button */}
-        <button
-          className={`pay-btn ${paid ? "paid" : ""}`}
-          onClick={handlePay}
-        >
-          {paid ? "Payment Confirmed! ✓" : "Pay Now  N6000 "}
-        </button>
+    <button
+  className={`pay-btn ${paid ? "paid" : ""}`}
+  onClick={handlePay}
+>
+  {paid ? "Payment Confirmed! ✓" : (
+    <>
+      <span>Pay Now</span>
+      <span>N 6000 </span>
+    </>
+  )}
+</button>
 
       </div>
     </PageLayout>

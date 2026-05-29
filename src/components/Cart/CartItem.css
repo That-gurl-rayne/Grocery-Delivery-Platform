@@ -2,7 +2,7 @@
 .cart-item {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 12px;
   padding: 20px 0;
   border-bottom: 1px solid #e0d9cc;
 }
@@ -16,10 +16,11 @@
 
 .cart-item-image-container {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   border-radius: 12px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .cart-item-image {
@@ -53,13 +54,14 @@
   gap: 12px;
   flex: 1;
   justify-content: center;
+  min-width: 0;
 }
 
 .cart-item-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
 }
 
 .quantity-label {
