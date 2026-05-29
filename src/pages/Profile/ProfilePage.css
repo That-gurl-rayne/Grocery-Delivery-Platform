@@ -1,0 +1,185 @@
+/* src/pages/Profile/ProfilePage.css */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 16px;
+}
+
+.profile-avatar {
+  margin-bottom: 8px;
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0F0F0F;
+  margin: 0;
+}
+
+.profile-email {
+  font-size: 16px;
+  color: #E9B118;
+  font-style: italic;
+  margin: 0;
+}
+
+.details-btn {
+  background-color: #0F0F0F;
+  color: #FFFAF4;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: default;
+  align-self: flex-start;
+}
+
+.profile-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 8px;
+}
+
+.profile-details p {
+  font-size: 16px;
+  color: #0F0F0F;
+  font-weight: 500;
+  margin: 0;
+}
+
+.order-history-btn {
+  background-color: #FFD561;
+  color: #0F0F0F;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+}
+
+.order-history-btn:hover {
+  background-color: #E9B118;
+}
+
+.logout-btn {
+  background-color: #0F0F0F;
+  color: #FFFAF4;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.logout-btn:hover {
+  background-color: #E9B118;
+  color: #0F0F0F;
+}
+.edit-name-input {
+  padding: 8px 16px;
+  border: 1.5px solid #FFD561;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  outline: none;
+  background-color: #FFFAF4;
+}
+
+.save-btn {
+  background-color: #FFD561;
+  border: none;
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F0F0F;
+}
+
+.edit-input {
+  padding: 12px 20px;
+  border: 1.5px solid #D9D9D9;
+  border-radius: 50px;
+  font-size: 15px;
+  background-color: #FFFAF4;
+  color: #0F0F0F;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-input:focus {
+  border-color: #FFD561;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.save-btn {
+  background-color: #FFD561;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #E9B118;
+}
+
+.cancel-btn {
+  background-color: #FFFAF4;
+  border: 1.5px solid #0F0F0F;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #0F0F0F;
+  color: #FFFAF4;
+}

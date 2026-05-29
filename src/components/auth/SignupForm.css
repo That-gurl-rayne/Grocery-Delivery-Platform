@@ -71,7 +71,6 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  width: 100%;
   margin-top: 8px;
 }
 
@@ -93,4 +92,26 @@
 
 .auth-link:hover {
   text-decoration: underline;
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input {
+  width: 100%;
+  padding-right: 50px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }

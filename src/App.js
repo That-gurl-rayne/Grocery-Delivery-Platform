@@ -3,6 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/Auth/LoginPage";
 import SignupPage from "./pages/Auth/SignupPage";
+import ProductsPage from "./pages/Products/ProductsPage";
+import ProductDetailPage from "./pages/Products/ProductDetailPage";
+import CartPage from "./pages/Cart/CartPage";
+import CheckoutPage from "./pages/Payment/CheckoutPage";
+import PaymentPage from "./pages/Payment/PaymentPage";
+import TrackingPage from "./pages/Tracking/TrackingPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import OrderHistoryPage from "./pages/Tracking/OrderHistoryPage";
+import ProfilePage from "./pages/Profile/ProfilePage";
 
 function App() {
   return (
@@ -11,6 +20,15 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<ProductDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/tracking" element={<TrackingPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/order-history" element={<OrderHistoryPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

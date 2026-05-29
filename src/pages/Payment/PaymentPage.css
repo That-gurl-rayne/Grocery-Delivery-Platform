@@ -1,0 +1,171 @@
+/* src/pages/Payment/PaymentPage.css */
+.payment-page {
+  padding: 10px 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: #0F0F0F;
+}
+
+.payment-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0F0F0F;
+  margin-bottom: 24px;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.method-btn {
+  background-color: #FFFAF4;
+  border: 1.5px solid #0F0F0F;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0F0F0F;
+}
+
+.method-btn.active {
+  background-color: #FFD561;
+  border-color: #FFD561;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F0F0F;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.payment-input {
+  padding: 14px 20px;
+  border: 1.5px solid #D9D9D9;
+  border-radius: 50px;
+  font-size: 15px;
+  background-color: #FFFAF4;
+  color: #0F0F0F;
+  outline: none;
+  width: 100%;
+}
+
+.payment-input:focus {
+  border-color: #FFD561;
+}
+
+.transfer-details {
+  margin-bottom: 24px;
+}
+
+.transfer-card {
+  background-color: #0F0F0F;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transfer-card p {
+  color: #FFFAF4;
+  font-size: 16px;
+  margin: 0;
+}
+
+.transfer-card strong {
+  color: #FFD561;
+}
+
+.payment-summary {
+  margin-bottom: 24px;
+}
+
+.summary-header {
+  background-color: #0F0F0F;
+  border-radius: 50px;
+  padding: 16px 30px;
+  margin-bottom: 16px;
+}
+
+.summary-header h2 {
+  color: #FFFAF4;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.summary-pill {
+  background-color: #FFFAF4;
+  border: 1.5px solid #0F0F0F;
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F0F0F;
+}
+
+.grand-total {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F0F0F;
+}
+
+.pay-btn {
+  background-color: #FFD561;
+  color: #0F0F0F;
+  border: none;
+  border-radius: 50px;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.pay-btn:hover {
+  background-color: #E9B118;
+}
+
+.pay-btn.paid {
+  background-color: #2ECC71;
+  color: #FFFAF4;
+}

@@ -1,0 +1,88 @@
+/* src/pages/Payment/CheckoutPage.css */
+.checkout-page {
+  padding: 10px 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: #0F0F0F;
+}
+
+.order-header {
+  margin-bottom: 24px;
+}
+
+.order-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0F0F0F;
+  margin-bottom: 12px;
+}
+
+.order-number {
+  color: #E9B118;
+}
+
+.order-date-pill {
+  background-color: #0F0F0F;
+  color: #FFFAF4;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.delivery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F0F0F;
+}
+
+.checkout-input {
+  padding: 14px 20px;
+  border: 1.5px solid #D9D9D9;
+  border-radius: 50px;
+  font-size: 15px;
+  background-color: #FFFAF4;
+  color: #0F0F0F;
+  outline: none;
+}
+
+.checkout-input:focus {
+  border-color: #FFD561;
+}
+
+.place-order-btn {
+  background-color: #FFD561;
+  color: #0F0F0F;
+  border: none;
+  border-radius: 50px;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.place-order-btn:hover {
+  background-color: #E9B118;
+}

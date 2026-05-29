@@ -58,7 +58,7 @@ function HomePage() {
         {/* Categories */}
         <div className="categories-row">
           {categories.map((cat, index) => (
-            <Link to="/products" key={index} className="category-card">
+           <Link to={`/products?category=${cat.name}`} key={index} className="category-card">
               <img src={cat.image} alt={cat.name} />
               <p>{cat.name}</p>
             </Link>

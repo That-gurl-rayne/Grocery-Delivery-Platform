@@ -1,4 +1,4 @@
-/* src/components/products/ProductCard.css */
+/* src/components/Products/ProductCard.css */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -65,11 +65,17 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .add-to-cart-btn:hover {
   background-color: #E9B118;
   color: #0F0F0F;
+}
+
+.add-to-cart-btn.added {
+  background-color: #2ECC71;
+  color: #FFFAF4;
 }
 
 .add-to-cart-btn svg path,
