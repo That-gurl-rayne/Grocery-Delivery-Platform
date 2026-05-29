@@ -84,7 +84,7 @@ const [phone, setPhone] = useState(user.phone || "");
           className="place-order-btn"
           onClick={() => navigate("/payment")}
         >
-          Place Order →
+          Place Order 
         </button>
 
       </div>

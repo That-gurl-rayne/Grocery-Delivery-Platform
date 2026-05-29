@@ -1,6 +1,7 @@
 /* src/pages/Payment/CheckoutPage.css */
 .checkout-page {
   padding: 10px 0;
+  margin-top: -40px;
 }
 
 .back-btn {

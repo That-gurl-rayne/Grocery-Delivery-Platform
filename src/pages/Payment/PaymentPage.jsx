@@ -132,7 +132,7 @@ function PaymentPage() {
           className={`pay-btn ${paid ? "paid" : ""}`}
           onClick={handlePay}
         >
-          {paid ? "Payment Confirmed! ✓" : "Pay Now N 6000 →"}
+          {paid ? "Payment Confirmed! ✓" : "Pay Now  N6000 "}
         </button>
 
       </div>
