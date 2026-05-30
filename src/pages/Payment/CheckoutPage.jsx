@@ -3,19 +3,27 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageLayout from "../../components/PageLayout";
 import OrderCard from "../../components/tracking/OrderCard";
-import "./CheckoutPage.css";
 import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
+import "./CheckoutPage.css";
 
 function CheckoutPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { cartItems } = useCart();
+
   const [address, setAddress] = useState(user.address || "");
-const [name, setName] = useState(user.name || "");
-const [phone, setPhone] = useState(user.phone || "");
-  const orderItems = [
-    { name: "Strawberry drink", price: 1500, quantity: 2 },
-    { name: "Pineapple drink", price: 2500, quantity: 1 },
-  ];
+  const [name, setName] = useState(user.name || "");
+  const [phone, setPhone] = useState(user.phone || "");
+
+  const orderDate = new Date().toLocaleString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true
+  });
 
   return (
     <PageLayout>
@@ -28,12 +36,9 @@ const [phone, setPhone] = useState(user.phone || "");
         <div className="order-header">
           <h1>Order <span className="order-number">1234</span></h1>
           <div className="order-date-pill">
-            Ordered on 2nd May 2026 by 11:04 am
+            Ordered on {orderDate}
           </div>
         </div>
-
-        {/* Tracking Bar */}
-
 
         {/* Delivery Details Form */}
         <div className="delivery-form">
@@ -70,21 +75,21 @@ const [phone, setPhone] = useState(user.phone || "");
         </div>
 
         {/* Order Card */}
-      <OrderCard
-  orderNumber="1234"
-  date="2nd May 2026 by 11:04 am"
-  items={orderItems}
-  deliveryFee={500}
-  address={address || "Enter your delivery address"}
-  estimatedArrival="Delivery Expected to arrive on 2nd May by 3:00 pm"
-/>
+        <OrderCard
+          orderNumber="1234"
+          date={orderDate}
+          items={cartItems}
+          deliveryFee={500}
+          address={address || "Enter your delivery address"}
+          estimatedArrival="Delivery Expected to arrive in 30-45 minutes"
+        />
 
         {/* Place Order Button */}
         <button
           className="place-order-btn"
           onClick={() => navigate("/payment")}
         >
-          Place Order 
+          Place Order →
         </button>
 
       </div>

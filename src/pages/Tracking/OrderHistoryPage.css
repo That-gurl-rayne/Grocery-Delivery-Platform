@@ -125,3 +125,26 @@
 .reorder-btn:hover {
   background-color: #E9B118;
 }
+.empty-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 0;
+}
+
+.empty-history p {
+  font-size: 20px;
+  color: #666;
+}
+
+.shop-btn {
+  background-color: #FFD561;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #0F0F0F;
+}

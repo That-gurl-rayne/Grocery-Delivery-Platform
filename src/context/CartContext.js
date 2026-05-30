@@ -5,6 +5,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [orderHistory, setOrderHistory] = useState([]);
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -44,15 +45,36 @@ export function CartProvider({ children }) {
     );
   };
 
+  const placeOrder = () => {
+    const order = {
+      id: Math.floor(Math.random() * 9000) + 1000,
+      date: new Date().toLocaleString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+      }),
+      items: cartItems,
+      total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0) + 500,
+      status: "Delivered",
+    };
+    setOrderHistory(prev => [order, ...prev]);
+    setCartItems([]);
+  };
+
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <CartContext.Provider value={{
       cartItems,
+      orderHistory,
       addToCart,
       removeFromCart,
       decreaseQuantity,
       increaseQuantity,
+      placeOrder,
       cartCount
     }}>
       {children}

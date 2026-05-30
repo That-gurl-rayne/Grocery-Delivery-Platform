@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageLayout from "../../components/PageLayout";
 import "./PaymentPage.css";
+import { useCart } from "../../context/CartContext";
 
 function PaymentPage() {
   const navigate = useNavigate();
+  const { cartItems, placeOrder } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
@@ -15,6 +17,7 @@ function PaymentPage() {
 
   const handlePay = () => {
     setPaid(true);
+    placeOrder();
    setTimeout(() => {
   navigate("/tracking");
 }, 2000);
