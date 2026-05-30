@@ -7,7 +7,7 @@ import { useCart } from "../../context/CartContext";
 
 function PaymentPage() {
   const navigate = useNavigate();
-  const { cartItems, placeOrder } = useCart();
+  const {placeOrder } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
