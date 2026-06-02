@@ -12,7 +12,7 @@ function Footer() {
         <div className="footer-brand">
           <h3 className="brand-logo">Oya <span className="logo-accent">Deliver</span></h3>
           <p className="brand-tagline">Fresh groceries delivered fast to your doorstep in 45 minutes.</p>
-          <p className="academic-tag">🎓 Developed by HP Group</p>
+          <p className="academic-tag">🎓 Developed by Group D</p>
         </div>
 
         {/* Links Grid */}

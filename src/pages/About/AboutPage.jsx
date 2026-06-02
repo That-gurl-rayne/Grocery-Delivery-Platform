@@ -25,16 +25,27 @@ function AboutPage() {
             </div>
             <div className="detail-row">
               <strong>Group Name:</strong>
-              <span>HP Group</span>
+              <span>ICT 211 Group D /Software Engineering</span>
             </div>
             <div className="detail-row">
-              <strong>Group Members:</strong>
-              <span>HP User</span>
+              <strong>Group Members </strong>
+             
             </div>
-            <div className="detail-row">
-              <strong>Matric Numbers:</strong>
-              <span>HP-MATRIC-001 (Edit in src/pages/About/AboutPage.jsx)</span>
-            </div>
+             <span>Udunna Yoanna Juochi -
+                Matric No: LCU/UG/24/33010
+              </span>
+              <span>Adesegun Martins Samad -
+                Matric No: LCU/UG/24/31515
+              </span>
+              <span>Izuchukwu Munachi Delight Chiamamka - 
+                Matric No: LCU/UG/24/31866
+              </span>
+              <span>Ademola OluwaPelumi Paul -
+                Matric No: LCU/UG/24/33187
+              </span>
+              <span>Okeke Chinedu Emmanuel -
+                Matric No: LCU/UG/24/29328
+              </span>
           </div>
         </div>
 
