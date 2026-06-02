@@ -1,0 +1,143 @@
+/* src/components/Footer.css */
+.footer {
+  background-color: #f7f0e6;
+  border-top: 1px solid #e9b118;
+  padding: 40px 20px 20px 20px;
+  position: relative;
+  z-index: 10;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #d3c4ad;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f0f0f;
+}
+
+.logo-accent {
+  color: #e9b118;
+}
+
+.brand-tagline {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.academic-tag {
+  font-size: 0.85rem;
+  color: #e9b118;
+  font-weight: 600;
+  margin: 0;
+}
+
+.footer-links-section h4,
+.footer-hours h4 {
+  font-size: 1.05rem;
+  color: #0f0f0f;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #e9b118;
+}
+
+.footer-hours p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 8px 0;
+}
+
+.footer-hours p strong {
+  color: #333;
+}
+
+.footer-bottom {
+  max-width: 1000px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Dark mode support */
+.dark-theme .footer {
+  background-color: #111111;
+  border-top-color: #e9b118;
+}
+.dark-theme .footer-container {
+  border-bottom-color: #2a2a2a;
+}
+.dark-theme .brand-logo {
+  color: #fff;
+}
+.dark-theme .brand-tagline {
+  color: #aaa;
+}
+.dark-theme .footer-links-section h4,
+.dark-theme .footer-hours h4 {
+  color: #fff;
+}
+.dark-theme .footer-links a {
+  color: #aaa;
+}
+.dark-theme .footer-links a:hover {
+  color: #e9b118;
+}
+.dark-theme .footer-hours p {
+  color: #aaa;
+}
+.dark-theme .footer-hours p strong {
+  color: #fff;
+}
+.dark-theme .footer-bottom {
+  color: #666;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

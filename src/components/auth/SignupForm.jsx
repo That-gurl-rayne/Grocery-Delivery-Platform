@@ -9,20 +9,31 @@ function SignupForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const { signup } = useAuth();
   const navigate = useNavigate();
 
- const handleSubmit = (e) => {
-  e.preventDefault();
-  login({ name: name, email: email });
-  navigate("/profile");
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    if (!name || !email || !password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+    const res = signup(name, email, password);
+    if (res.success) {
+      navigate("/profile");
+    } else {
+      setError(res.message);
+    }
+  };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h1 className="auth-title">Create Account</h1>
         <p className="auth-subtitle">Sign up to get started</p>
+        {error && <div className="auth-error" style={{ color: "#e74c3c", backgroundColor: "#fdeae8", padding: "10px", borderRadius: "5px", marginBottom: "15px", fontSize: "14px", textAlign: "center" }}>{error}</div>}
 
         <div className="auth-form">
           <div className="form-group">

@@ -3,6 +3,12 @@ import React from "react";
 import "./SearchBar.css";
 
 function SearchBar({ value, onChange, onSearch }) {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && onSearch) {
+      onSearch();
+    }
+  };
+
   return (
     <div className="search-bar-container">
       <input
@@ -11,6 +17,7 @@ function SearchBar({ value, onChange, onSearch }) {
         placeholder="Search"
         value={value}
         onChange={onChange}
+        onKeyDown={handleKeyDown}
       />
       <button className="search-btn" onClick={onSearch}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">

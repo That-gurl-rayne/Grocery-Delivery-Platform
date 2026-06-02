@@ -12,6 +12,10 @@ import TrackingPage from "./pages/Tracking/TrackingPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import OrderHistoryPage from "./pages/Tracking/OrderHistoryPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
+import AboutPage from "./pages/About/AboutPage";
+import ContactPage from "./pages/Contact/ContactPage";
+import SettingsPage from "./pages/Settings/SettingsPage";
+import AdminPage from "./pages/Admin/AdminPage";
 
 function App() {
   return (
@@ -28,6 +32,10 @@ function App() {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/order-history" element={<OrderHistoryPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

@@ -7,7 +7,7 @@ import { useCart } from "../../context/CartContext";
 
 function PaymentPage() {
   const navigate = useNavigate();
-  const {placeOrder } = useCart();
+  const { cartItems, placeOrder } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
@@ -15,12 +15,17 @@ function PaymentPage() {
   const [cvv, setCvv] = useState("");
   const [paid, setPaid] = useState(false);
 
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const deliveryFee = subtotal > 0 ? 500 : 0;
+  const grandTotal = subtotal + deliveryFee;
+
   const handlePay = () => {
     setPaid(true);
-    placeOrder();
-   setTimeout(() => {
-  navigate("/tracking");
-}, 2000);
+    const address = localStorage.getItem("oya_checkout_address") || "Default Address";
+    placeOrder(address, grandTotal);
+    setTimeout(() => {
+      navigate("/tracking");
+    }, 2000);
   };
 
   return (
@@ -106,7 +111,7 @@ function PaymentPage() {
               <p>Bank: <strong>First Bank</strong></p>
               <p>Account Number: <strong>1234567890</strong></p>
               <p>Account Name: <strong>Oya Deliver Ltd</strong></p>
-              <p>Amount: <strong>N 6000</strong></p>
+              <p>Amount: <strong>N {grandTotal}</strong></p>
             </div>
           </div>
         )}
@@ -118,30 +123,30 @@ function PaymentPage() {
           </div>
           <div className="summary-row">
             <span className="summary-pill">Subtotal</span>
-            <span>N 5500</span>
+            <span>N {subtotal}</span>
           </div>
           <div className="summary-row">
             <span className="summary-pill">Delivery fee</span>
-            <span>N 500</span>
+            <span>N {deliveryFee}</span>
           </div>
           <div className="summary-row">
             <span className="summary-pill grand">Grand Total</span>
-            <span className="grand-total">N 6000</span>
+            <span className="grand-total">N {grandTotal}</span>
           </div>
         </div>
 
         {/* Pay Button */}
-    <button
-  className={`pay-btn ${paid ? "paid" : ""}`}
-  onClick={handlePay}
->
-  {paid ? "Payment Confirmed! ✓" : (
-    <>
-      <span>Pay Now</span>
-      <span>N 6000 </span>
-    </>
-  )}
-</button>
+        <button
+          className={`pay-btn ${paid ? "paid" : ""}`}
+          onClick={handlePay}
+        >
+          {paid ? "Payment Confirmed! ✓" : (
+            <>
+              <span>Pay Now</span>
+              <span>N {grandTotal}</span>
+            </>
+          )}
+        </button>
 
       </div>
     </PageLayout>

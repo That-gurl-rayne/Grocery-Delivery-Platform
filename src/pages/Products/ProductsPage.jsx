@@ -11,6 +11,19 @@ import "./ProductsPage.css";
 const categories = ["All", "Drinks", "Vegetables", "Grains", "Snacks", "Fruits", "Protein"];
 
 function ProductsPage() {
+  const [productList, setProductList] = useState(() => {
+    const stored = localStorage.getItem("oya_products");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        // Fallback
+      }
+    }
+    localStorage.setItem("oya_products", JSON.stringify(products));
+    return products;
+  });
+
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const navigate = useNavigate();
@@ -21,9 +34,12 @@ function ProductsPage() {
     const params = new URLSearchParams(location.search);
     const cat = params.get("category");
     if (cat) setActiveCategory(cat);
+    
+    const query = params.get("search");
+    if (query) setSearch(query);
   }, [location.search]);
 
-  const filtered = products.filter((p) => {
+  const filtered = productList.filter((p) => {
     const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = activeCategory === "All" || p.category === activeCategory;
     return matchesSearch && matchesCategory;
