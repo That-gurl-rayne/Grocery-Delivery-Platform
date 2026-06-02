@@ -186,45 +186,6 @@ input:checked + .slider:before {
   opacity: 0.9;
 }
 
-/* Dark mode compatibility styling */
-.dark-theme .settings-title {
-  color: #fff;
-}
-.dark-theme .settings-card {
-  background: #1a1a1a;
-  border-color: #333;
-}
-.dark-theme .settings-card h2 {
-  color: #fff;
-  border-color: #333;
-}
-.dark-theme .setting-row {
-  border-color: #2a2a2a;
-}
-.dark-theme .setting-label {
-  color: #fff;
-}
-.dark-theme .setting-desc {
-  color: #aaa;
-}
-.dark-theme .summary-info-row {
-  border-color: #2a2a2a;
-}
-.dark-theme .summary-info-row strong {
-  color: #ccc;
-}
-.dark-theme .summary-info-row span {
-  color: #aaa;
-}
-.dark-theme .no-account-notice {
-  color: #aaa;
-}
-.dark-theme .slider {
-  background-color: #444;
-}
-.dark-theme .text-danger {
-  color: #e74c3c !important;
-}
 
 /* Responsiveness */
 @media (max-width: 500px) {

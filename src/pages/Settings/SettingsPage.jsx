@@ -7,11 +7,6 @@ import "./SettingsPage.css";
 function SettingsPage() {
   const { isLoggedIn, user, logout } = useAuth();
   
-  // Theme state
-  const [darkTheme, setDarkTheme] = useState(() => {
-    return JSON.parse(localStorage.getItem("oya_dark_theme")) || false;
-  });
-
   // Notification states
   const [pushNotifs, setPushNotifs] = useState(() => {
     const stored = localStorage.getItem("oya_push_notifs");
