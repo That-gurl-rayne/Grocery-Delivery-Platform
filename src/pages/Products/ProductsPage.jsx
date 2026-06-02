@@ -11,6 +11,7 @@ import "./ProductsPage.css";
 const categories = ["All", "Drinks", "Vegetables", "Grains", "Snacks", "Fruits", "Protein"];
 
 function ProductsPage() {
+   eslint-disable-next-line
   const [productList, setProductList] = useState(() => {
     const stored = localStorage.getItem("oya_products");
     if (stored) {
