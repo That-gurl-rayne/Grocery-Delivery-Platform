@@ -46,6 +46,9 @@ function AboutPage() {
               <span>Okeke Chinedu Emmanuel -
                 Matric No: LCU/UG/24/29328
               </span>
+              <span>Chuckwudumebi Offor Gerad Mario -
+                Matric No: LCU/UG/24/32298
+              </span>
           </div>
         </div>
 
