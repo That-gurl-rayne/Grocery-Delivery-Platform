@@ -1,5 +1,5 @@
 // src/components/Navbar.jsx
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
@@ -8,7 +8,12 @@ import "./Navbar.css";
 
 function Navbar() {
   const { cartCount } = useCart();
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, user } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav className="navbar">
@@ -20,23 +25,47 @@ function Navbar() {
         </NavLink>
       </div>
 
+      {/* Burger Menu Button for Mobile */}
+      <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
+        <span className={`burger-bar ${isMenuOpen ? "open" : ""}`}></span>
+        <span className={`burger-bar ${isMenuOpen ? "open" : ""}`}></span>
+        <span className={`burger-bar ${isMenuOpen ? "open" : ""}`}></span>
+      </button>
+
       {/* Links */}
-      <ul className="navbar-links">
+      <ul className={`navbar-links ${isMenuOpen ? "mobile-open" : ""}`}>
         <li>
-          <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
+          <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsMenuOpen(false)}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/products" className={({ isActive }) => isActive ? "active" : ""}>
-            Product
+          <NavLink to="/products" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsMenuOpen(false)}>
+            Products
           </NavLink>
         </li>
         <li>
-          <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>
+          <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsMenuOpen(false)}>
             About
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsMenuOpen(false)}>
+            Contact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/settings" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsMenuOpen(false)}>
+            Settings
+          </NavLink>
+        </li>
+        {isLoggedIn && user && user.role === "admin" && (
+          <li>
+            <NavLink to="/admin" className={({ isActive }) => isActive ? "active admin-link" : "admin-link"} onClick={() => setIsMenuOpen(false)}>
+              Admin 🛠️
+            </NavLink>
+          </li>
+        )}
       </ul>
 
       {/* Icons */}

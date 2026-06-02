@@ -1,6 +1,7 @@
 // src/components/PageLayout.jsx
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import skyline from "../assets/skyline.png";
 import "./PageLayout.css";
 
@@ -11,7 +12,10 @@ function PageLayout({ children }) {
       <div className="page-content">
         {children}
       </div>
-      <img src={skyline} alt="" className="skyline" />
+      <div className="skyline-wrapper">
+        <img src={skyline} alt="" className="skyline" />
+      </div>
+      <Footer />
     </div>
   );
 }

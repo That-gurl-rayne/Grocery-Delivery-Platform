@@ -15,6 +15,7 @@ function CheckoutPage() {
   const [address, setAddress] = useState(user.address || "");
   const [name, setName] = useState(user.name || "");
   const [phone, setPhone] = useState(user.phone || "");
+  const [error, setError] = useState("");
 
   const orderDate = new Date().toLocaleString("en-GB", {
     day: "numeric",
@@ -25,6 +26,17 @@ function CheckoutPage() {
     hour12: true
   });
 
+  const handlePlaceOrder = () => {
+    if (!name || !phone || !address) {
+      setError("Please fill in all delivery details before placing your order.");
+      return;
+    }
+    localStorage.setItem("oya_checkout_name", name);
+    localStorage.setItem("oya_checkout_phone", phone);
+    localStorage.setItem("oya_checkout_address", address);
+    navigate("/payment");
+  };
+
   return (
     <PageLayout>
       <div className="checkout-page">
@@ -34,11 +46,17 @@ function CheckoutPage() {
 
         {/* Order Header */}
         <div className="order-header">
-          <h1>Order <span className="order-number">1234</span></h1>
+          <h1>New <span className="order-number">Order</span></h1>
           <div className="order-date-pill">
-            Ordered on {orderDate}
+            Draft created {orderDate}
           </div>
         </div>
+
+        {error && (
+          <div className="checkout-error" style={{ color: "#e74c3c", backgroundColor: "#fdeae8", padding: "10px 15px", borderRadius: "5px", marginBottom: "20px", fontSize: "14px", fontWeight: "500" }}>
+            {error}
+          </div>
+        )}
 
         {/* Delivery Details Form */}
         <div className="delivery-form">
@@ -76,7 +94,7 @@ function CheckoutPage() {
 
         {/* Order Card */}
         <OrderCard
-          orderNumber="1234"
+          orderNumber="Draft"
           date={orderDate}
           items={cartItems}
           deliveryFee={500}
@@ -87,7 +105,7 @@ function CheckoutPage() {
         {/* Place Order Button */}
         <button
           className="place-order-btn"
-          onClick={() => navigate("/payment")}
+          onClick={handlePlaceOrder}
         >
           Place Order →
         </button>
@@ -97,4 +115,4 @@ function CheckoutPage() {
   );
 }
 
-export default CheckoutPage;
+export default CheckoutPage;

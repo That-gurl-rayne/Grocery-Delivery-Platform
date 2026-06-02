@@ -1,0 +1,242 @@
+/* src/pages/Settings/SettingsPage.css */
+.settings-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 10px 80px 10px;
+}
+
+.settings-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #0f0f0f;
+  margin-bottom: 2rem;
+}
+
+.settings-title .highlight {
+  color: #e9b118;
+}
+
+.settings-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0e6d6;
+}
+
+.danger-card {
+  border-left: 5px solid #e74c3c;
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: 1.25rem;
+  color: #0f0f0f;
+  border-bottom: 1px dashed #f0e6d6;
+  padding-bottom: 10px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px dashed #f9f4ec;
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.setting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 15px;
+}
+
+.setting-label {
+  font-weight: 600;
+  color: #0f0f0f;
+  font-size: 1rem;
+}
+
+.setting-desc {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Custom switch toggle styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d3c4ad;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #e9b118;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Account section styles */
+.account-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: 4px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.summary-info-row:last-child {
+  border-bottom: none;
+}
+
+.summary-info-row strong {
+  color: #333;
+}
+
+.summary-info-row span {
+  color: #555;
+  font-weight: 500;
+}
+
+.role-badge {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.role-badge.admin {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.no-account-notice {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+.text-danger {
+  color: #c0392b !important;
+}
+
+.danger-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.danger-btn:hover {
+  opacity: 0.9;
+}
+
+/* Dark mode compatibility styling */
+.dark-theme .settings-title {
+  color: #fff;
+}
+.dark-theme .settings-card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+.dark-theme .settings-card h2 {
+  color: #fff;
+  border-color: #333;
+}
+.dark-theme .setting-row {
+  border-color: #2a2a2a;
+}
+.dark-theme .setting-label {
+  color: #fff;
+}
+.dark-theme .setting-desc {
+  color: #aaa;
+}
+.dark-theme .summary-info-row {
+  border-color: #2a2a2a;
+}
+.dark-theme .summary-info-row strong {
+  color: #ccc;
+}
+.dark-theme .summary-info-row span {
+  color: #aaa;
+}
+.dark-theme .no-account-notice {
+  color: #aaa;
+}
+.dark-theme .slider {
+  background-color: #444;
+}
+.dark-theme .text-danger {
+  color: #e74c3c !important;
+}
+
+/* Responsiveness */
+@media (max-width: 500px) {
+  .setting-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .toggle-switch {
+    align-self: flex-end;
+  }
+  .danger-btn {
+    align-self: flex-end;
+  }
+}

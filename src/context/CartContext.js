@@ -1,11 +1,40 @@
 // src/context/CartContext.js
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
-  const [orderHistory, setOrderHistory] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const stored = localStorage.getItem("oya_cartItems");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        // Fallback
+      }
+    }
+    return [];
+  });
+
+  const [orderHistory, setOrderHistory] = useState(() => {
+    const stored = localStorage.getItem("oya_orderHistory");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        // Fallback
+      }
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("oya_cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  useEffect(() => {
+    localStorage.setItem("oya_orderHistory", JSON.stringify(orderHistory));
+  }, [orderHistory]);
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -45,9 +74,10 @@ export function CartProvider({ children }) {
     );
   };
 
-  const placeOrder = () => {
+  const placeOrder = (address, customTotal) => {
+    const orderId = Math.floor(Math.random() * 9000) + 1000;
     const order = {
-      id: Math.floor(Math.random() * 9000) + 1000,
+      id: orderId,
       date: new Date().toLocaleString("en-GB", {
         day: "numeric",
         month: "long",
@@ -56,12 +86,24 @@ export function CartProvider({ children }) {
         minute: "2-digit",
         hour12: true
       }),
-      items: cartItems,
-      total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0) + 500,
-      status: "Delivered",
+      items: [...cartItems],
+      total: customTotal || (cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0) + 500),
+      address: address || "Not provided",
+      status: "Processing",
     };
+    
     setOrderHistory(prev => [order, ...prev]);
     setCartItems([]);
+    localStorage.setItem("oya_latest_order_id", orderId.toString());
+    return orderId;
+  };
+
+  const updateOrderStatus = (orderId, status) => {
+    setOrderHistory(prev =>
+      prev.map(order =>
+        order.id === orderId ? { ...order, status } : order
+      )
+    );
   };
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -75,6 +117,7 @@ export function CartProvider({ children }) {
       decreaseQuantity,
       increaseQuantity,
       placeOrder,
+      updateOrderStatus,
       cartCount
     }}>
       {children}
@@ -84,4 +127,4 @@ export function CartProvider({ children }) {
 
 export function useCart() {
   return useContext(CartContext);
-}
+}

@@ -8,20 +8,31 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
- const handleSubmit = (e) => {
-  e.preventDefault();
-  login({ name: email.split("@")[0], email: email });
-  navigate("/profile");
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    if (!email || !password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+    const res = login(email, password);
+    if (res.success) {
+      navigate("/profile");
+    } else {
+      setError(res.message);
+    }
+  };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h1 className="auth-title">Welcome Back</h1>
         <p className="auth-subtitle">Login to your account</p>
+        {error && <div className="auth-error" style={{ color: "#e74c3c", backgroundColor: "#fdeae8", padding: "10px", borderRadius: "5px", marginBottom: "15px", fontSize: "14px", textAlign: "center" }}>{error}</div>}
 
         <div className="auth-form">
           <div className="form-group">

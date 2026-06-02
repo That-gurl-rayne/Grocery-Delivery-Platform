@@ -1,6 +1,5 @@
-// src/pages/Home/HomePage.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PageLayout from "../../components/PageLayout";
 import SearchBar from "../../components/Products/SearchBar";
 import "./HomePage.css";
@@ -22,6 +21,7 @@ const phrases = [
 function HomePage() {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,6 +29,12 @@ function HomePage() {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleSearch = () => {
+    if (searchValue.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchValue.trim())}`);
+    }
+  };
 
   return (
     <PageLayout>
@@ -39,6 +45,7 @@ function HomePage() {
           <SearchBar
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
+            onSearch={handleSearch}
           />
         </div>
 

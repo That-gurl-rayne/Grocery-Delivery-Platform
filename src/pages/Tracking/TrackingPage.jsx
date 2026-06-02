@@ -22,6 +22,13 @@ function TrackingPage() {
     hour12: true
   });
 
+  const getStep = (status) => {
+    if (status === "Processing") return 1;
+    if (status === "Out for Delivery") return 2;
+    if (status === "Delivered") return 3;
+    return 1;
+  };
+
   return (
     <PageLayout>
       <div className="tracking-page">
@@ -37,14 +44,20 @@ function TrackingPage() {
           </div>
         </div>
 
-        <TrackingBar currentStep={1} />
+        <TrackingBar currentStep={latestOrder ? getStep(latestOrder.status) : 1} />
 
         <OrderCard
           orderNumber={latestOrder ? latestOrder.id : "1234"}
           items={latestOrder ? latestOrder.items : []}
           deliveryFee={500}
-          address="Your delivery address"
-          estimatedArrival="Delivery Expected to arrive in 30-45 minutes"
+          address={latestOrder ? latestOrder.address : "Your delivery address"}
+          estimatedArrival={
+            latestOrder && latestOrder.status === "Delivered"
+              ? "Your order has been delivered! Enjoy your meal."
+              : latestOrder && latestOrder.status === "Out for Delivery"
+              ? "Order is out for delivery! Expect it in 5-10 minutes."
+              : "Delivery Expected to arrive in 30-45 minutes"
+          }
         />
 
       </div>

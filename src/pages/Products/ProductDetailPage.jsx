@@ -14,10 +14,31 @@ function ProductDetailPage() {
   const [added, setAdded] = useState(false);
   const { addToCart } = useCart();
 
-  const product = products.find((p) => p.id === parseInt(id));
-  const related = products.filter((p) => p.category === product?.category && p.id !== product?.id).slice(0, 2);
+  const [productList] = useState(() => {
+    const stored = localStorage.getItem("oya_products");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        // Fallback
+      }
+    }
+    return products;
+  });
 
-  if (!product) return <div>Product not found</div>;
+  const product = productList.find((p) => p.id === parseInt(id));
+  const related = productList.filter((p) => p.category === product?.category && p.id !== product?.id).slice(0, 2);
+
+  if (!product) {
+    return (
+      <PageLayout>
+        <div style={{ textAlign: "center", padding: "50px 20px" }}>
+          <h2>Product Not Found</h2>
+          <button onClick={() => navigate("/products")} style={{ background: "#E9B118", border: "none", padding: "10px 20px", borderRadius: "5px", color: "#0F0F0F", fontWeight: "600", cursor: "pointer", marginTop: "15px" }}>Back to Catalog</button>
+        </div>
+      </PageLayout>
+    );
+  }
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
