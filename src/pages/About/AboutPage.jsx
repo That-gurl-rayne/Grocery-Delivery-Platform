@@ -15,7 +15,7 @@ function AboutPage() {
           add items to their cart, securely check out, and track their delivery status in real-time.
         </p>
 
-        {/* Project Context Box */}
+        {/* Project Context  */}
         <div className="project-card academic-card">
           <h2>🎓 Student Project Submission Details</h2>
           <div className="project-details-grid">
@@ -55,19 +55,19 @@ function AboutPage() {
         {/* Key Features Section */}
         <div className="about-grid">
           <div className="project-card">
-            <h3>✨ Key Features</h3>
+            <h3> Key Features</h3>
             <ul>
-              <li>🛒 <strong>Cart Management:</strong> Add, remove, and adjust quantities dynamically.</li>
-              <li>🔍 <strong>Search & Categories:</strong> Filter products by food group or search by text.</li>
-              <li>🔒 <strong>Mock Auth:</strong> User registration, login, and profile modification.</li>
-              <li>📦 <strong>Admin Panel:</strong> Create, view, update, and delete products, and manage order statuses.</li>
-              <li>🛰️ <strong>Real-time Tracking:</strong> Track whether your order is Processing, Out for Delivery, or Delivered.</li>
-              <li>💾 <strong>Local Storage Database:</strong> Full state persistence for carts, history, and catalog.</li>
+              <li> <strong>Cart Management:</strong> Add, remove, and adjust quantities dynamically.</li>
+              <li> <strong>Search & Categories:</strong> Filter products by food group or search by text.</li>
+              <li> <strong>Mock Auth:</strong> User registration, login, and profile modification.</li>
+              <li> <strong>Admin Panel:</strong> Create, view, update, and delete products, and manage order statuses.</li>
+              <li> <strong>Real-time Tracking:</strong> Track whether your order is Processing, Out for Delivery, or Delivered.</li>
+              <li> <strong>Local Storage Database:</strong> Full state persistence for carts, history, and catalog.</li>
             </ul>
           </div>
 
           <div className="project-card">
-            <h3>🛠️ Tools & Technologies</h3>
+            <h3> Tools & Technologies</h3>
             <ul>
               <li><strong>Frontend:</strong> React 19, JavaScript (ES6+), HTML5</li>
               <li><strong>Styling:</strong> CSS3 (Custom Variables, Flexbox, Grids, Responsive Media Queries)</li>

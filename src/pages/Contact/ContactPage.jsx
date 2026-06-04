@@ -65,7 +65,7 @@ function ContactPage() {
           <div className="contact-details">
             <div className="detail-card">
               <h3>📍 Headquarters</h3>
-              <p>12 Oya Deliver Lane, Herbert Macaulay Way, Yaba, Lagos, Nigeria.</p>
+              <p>Leadcity University, Ibadan, Nigeria.</p>
             </div>
             
             <div className="detail-card">
@@ -84,7 +84,7 @@ function ContactPage() {
             <div className="map-mock">
               <div className="map-placeholder">
                 <span className="pin">📍</span>
-                <p>Interactive Map Mockup (Yaba, Lagos)</p>
+                <p>Interactive Map Mockup (Ibadan, Oyo State)</p>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingScreen from "./components/LoadingScreen";
 import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/Auth/LoginPage";
 import SignupPage from "./pages/Auth/SignupPage";
@@ -18,6 +19,17 @@ import SettingsPage from "./pages/Settings/SettingsPage";
 import AdminPage from "./pages/Admin/AdminPage";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <LoadingScreen />;
+
   return (
     <Router>
       <Routes>
