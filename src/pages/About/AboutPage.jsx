@@ -25,7 +25,7 @@ function AboutPage() {
             </div>
             <div className="detail-row">
               <strong>Group Name:</strong>
-              <span>ICT 211 Group D /Software Engineering</span>
+              <span>ICT 211 Group D /Software Engineering 200lvl</span>
             </div>
             <div className="detail-row">
               <strong>Group Members </strong>
