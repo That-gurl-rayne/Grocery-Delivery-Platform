@@ -24,7 +24,7 @@ function CartSummary({ items, deliveryFee = 500 }) {
           </div>
         ))}
 
-        {/* Delivery fee */}
+        {/*the Delivery fee */}
         <div className="summary-row">
           <span className="summary-pill">Delivery fee</span>
           <span className="summary-price">N {deliveryFee}</span>
