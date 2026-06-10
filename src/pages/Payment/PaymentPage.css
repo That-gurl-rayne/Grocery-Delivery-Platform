@@ -174,3 +174,37 @@
   background-color: #2ECC71;
   color: #FFFAF4;
 }
+
+.pay-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.payment-error {
+  background-color: #fdeae8;
+  color: #e74c3c;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.transfer-confirm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0F0F0F;
+  cursor: pointer;
+}
+
+.transfer-confirm input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #FFD561;
+  cursor: pointer;
+}
