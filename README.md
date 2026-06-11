@@ -36,6 +36,7 @@ Login and Signup with password visibility toggle
  - Okeke Chinedu Emmanuel- Developer
  - Olawunmi Oluwajomiloju Gerrard - Developer
  - Akinlosotu Oluwatomisin Success - Developer
+ - Ayodeji Ferranmi Adebowale - Developer
 
 
 
