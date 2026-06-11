@@ -37,6 +37,7 @@ function AboutPage() {
               <span>Adesegun Martins Samad -
                 Matric No: LCU/UG/24/31515
               </span>
+              
               <span>Izuchukwu Munachi Delight Chiamamka - 
                 Matric No: LCU/UG/24/31866
               </span>
