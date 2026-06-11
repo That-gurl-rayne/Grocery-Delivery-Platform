@@ -50,10 +50,13 @@ function AboutPage() {
                 Matric No: LCU/UG/24/32298
               </span>
               <span>Olawunmi Oluwajomiloju Gerrard -
-                Matric No: LCU/Pt/24/0822
+                Matric No: LCU/Pt/24/0823
               </span>
                <span>Akinlosotu Oluwatiomisin Success-
                 Matric No: LCU/UG/24/30359
+              </span>
+              <span>Ayodeji Feranmi Adebowale-
+                Matric No: LCU/UG/24/31046
               </span>
           </div>
         </div>
