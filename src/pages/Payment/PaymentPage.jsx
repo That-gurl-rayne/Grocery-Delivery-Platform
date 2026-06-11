@@ -14,12 +14,46 @@ function PaymentPage() {
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [paid, setPaid] = useState(false);
+  const [error, setError] = useState("");
+  const [transferConfirmed, setTransferConfirmed] = useState(false);
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const deliveryFee = subtotal > 0 ? 500 : 0;
   const grandTotal = subtotal + deliveryFee;
 
+  const validateCardPayment = () => {
+    const digitsOnly = cardNumber.replace(/\s/g, "");
+    if (digitsOnly.length < 16 || !/^\d+$/.test(digitsOnly)) {
+      return "Please enter a valid 16-digit card number.";
+    }
+    if (!cardName.trim()) {
+      return "Please enter the cardholder name.";
+    }
+    if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry)) {
+      return "Please enter a valid expiry date (MM/YY).";
+    }
+    if (!/^\d{3}$/.test(cvv)) {
+      return "Please enter a valid 3-digit CVV.";
+    }
+    return "";
+  };
+
   const handlePay = () => {
+    setError("");
+
+    if (paymentMethod === "card") {
+      const validationError = validateCardPayment();
+      if (validationError) {
+        setError(validationError);
+        return;
+      }
+    } else if (paymentMethod === "transfer") {
+      if (!transferConfirmed) {
+        setError("Please confirm that you have completed the bank transfer.");
+        return;
+      }
+    }
+
     setPaid(true);
     const address = localStorage.getItem("oya_checkout_address") || "Default Address";
     placeOrder(address, grandTotal);
@@ -32,28 +66,25 @@ function PaymentPage() {
     <PageLayout>
       <div className="payment-page">
 
-        {/* Back button */}
         <button className="back-btn" onClick={() => navigate(-1)}>←</button>
 
         <h1 className="payment-title">Payment</h1>
 
-        {/* Payment Method */}
         <div className="payment-methods">
           <button
             className={`method-btn ${paymentMethod === "card" ? "active" : ""}`}
-            onClick={() => setPaymentMethod("card")}
+            onClick={() => { setPaymentMethod("card"); setError(""); }}
           >
             💳 Card
           </button>
           <button
             className={`method-btn ${paymentMethod === "transfer" ? "active" : ""}`}
-            onClick={() => setPaymentMethod("transfer")}
+            onClick={() => { setPaymentMethod("transfer"); setError(""); }}
           >
             🏦 Bank Transfer
           </button>
         </div>
 
-        {/* Card Form */}
         {paymentMethod === "card" && (
           <div className="payment-form">
             <div className="form-group">
@@ -104,7 +135,6 @@ function PaymentPage() {
           </div>
         )}
 
-        {/* Bank Transfer */}
         {paymentMethod === "transfer" && (
           <div className="transfer-details">
             <div className="transfer-card">
@@ -113,10 +143,17 @@ function PaymentPage() {
               <p>Account Name: <strong>Oya Deliver Ltd</strong></p>
               <p>Amount: <strong>N {grandTotal}</strong></p>
             </div>
+            <label className="transfer-confirm">
+              <input
+                type="checkbox"
+                checked={transferConfirmed}
+                onChange={(e) => { setTransferConfirmed(e.target.checked); setError(""); }}
+              />
+              <span>I have completed this bank transfer</span>
+            </label>
           </div>
         )}
 
-        {/* Order Summary */}
         <div className="payment-summary">
           <div className="summary-header">
             <h2>Total</h2>
@@ -135,10 +172,16 @@ function PaymentPage() {
           </div>
         </div>
 
-        {/* Pay Button */}
+        {error && (
+          <div className="payment-error">
+            {error}
+          </div>
+        )}
+
         <button
           className={`pay-btn ${paid ? "paid" : ""}`}
           onClick={handlePay}
+          disabled={paid}
         >
           {paid ? "Payment Confirmed! ✓" : (
             <>
